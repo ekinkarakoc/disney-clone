@@ -1,5 +1,9 @@
 @import "tailwindcss";
-:root {
+
+body {
+  background-color: #242424;
+}
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -26,7 +30,7 @@ a:hover {
 body {
   background-color: #1a1a1a;
   margin: 0;
-
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -66,4 +70,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
