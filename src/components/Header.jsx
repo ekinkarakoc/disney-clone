@@ -10,7 +10,7 @@ import {
 } from "react-icons/hi2";
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
 import HeaderItem from "./HeaderItem";
-
+import { getTrendingVideos } from "../services/GlobalAPI";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
 
@@ -32,7 +32,7 @@ const Header = () => {
           alt="disney-logo"
           className="w-[80px] md:w-[115px] object-cover"
         />
-        <div className="hidden md:flex gap-8">
+        <div className="hidden lg:flex gap-8">
           {menu.map((item, index) => (
             <HeaderItem
               key={index}
@@ -42,7 +42,7 @@ const Header = () => {
             />
           ))}
         </div>
-        <div className="flex gap-8 md:hidden">
+        <div className="flex gap-8 lg:hidden">
           {menu.map(
             (item, index) =>
               index < 3 && (
@@ -54,7 +54,7 @@ const Header = () => {
                 />
               )
           )}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div
               onClick={() => {
                 setToggle(!toggle);
