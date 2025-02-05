@@ -1,4 +1,11 @@
 
+#root{
+  background-color: #131520;
+}
+body{
+  background-color: #131520;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
