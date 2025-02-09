@@ -3,8 +3,9 @@ import { getMovieByGenreId } from "../services/GlobalAPI";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 
 import MovieCard from "./MovieCard";
+import HrMovieCard from "./HrMovieCard";
 
-const MovieList = ({ genreId }) => {
+const MovieList = ({ genreId, index_ }) => {
   const [movieList, setMovieList] = useState([]);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const elementRef = useRef(null);
@@ -33,22 +34,42 @@ const MovieList = ({ genreId }) => {
   };
   return (
     <div className="relative transition-all duration-150 ">
-      <FaChevronLeft
-        className="hidden md:block text-white text-[30px] absolute mx-8 top-35 cursor-pointer left-[-70px] z-20"
-        onClick={() => sliderLeft(elementRef.current)}
-      />
+      {index_ % 3 == 0 ? (
+        <FaChevronLeft
+          className="hidden md:block text-white text-[30px] absolute mx-8 top-15 cursor-pointer left-[-70px] z-20"
+          onClick={() => sliderLeft(elementRef.current)}
+        />
+      ) : (
+        <FaChevronLeft
+          className="hidden md:block text-white text-[30px] absolute mx-8 top-35 cursor-pointer left-[-70px] z-20"
+          onClick={() => sliderLeft(elementRef.current)}
+        />
+      )}
       <div
         className="flex overflow-x-auto gap-8 scrollbar-hide py-5 px-3 scroll-smooth"
         ref={elementRef}
       >
         {movieList.map((item, index) => (
-          <MovieCard movie={item} key={index} />
+          <>
+            {index_ % 3 == 0 ? (
+              <HrMovieCard movie={item} key={index} />
+            ) : (
+              <MovieCard movie={item} key={index} />
+            )}
+          </>
         ))}
       </div>
-      <FaChevronRight
-        className="hidden md:block text-white text-[30px] absolute mx-8 top-35 cursor-pointer right-[-70px] z-20"
-        onClick={() => sliderRight(elementRef.current)}
-      />
+      {index_ % 3 == 0 ? (
+        <FaChevronRight
+          className="hidden md:block text-white text-[30px] absolute mx-8 top-15 cursor-pointer right-[-70px] z-20"
+          onClick={() => sliderRight(elementRef.current)}
+        />
+      ) : (
+        <FaChevronRight
+          className="hidden md:block text-white text-[30px] absolute mx-8 top-35 cursor-pointer right-[-70px] z-20"
+          onClick={() => sliderRight(elementRef.current)}
+        />
+      )}
     </div>
   );
 };
